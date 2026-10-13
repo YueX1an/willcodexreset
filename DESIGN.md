@@ -86,11 +86,13 @@
 
 ## 文件与自启
 
-扁平放在 `E:\temp\`（不建子文件夹）：
+放在本项目仓库目录 `E:\OneDrive\应用\willcodexreset\`：
 
 - `codex_reset_widget.py` — 主程序（纯标准库：`tkinter` / `urllib` / `json` / `ctypes` / `datetime`）
 - `codex_reset_widget.bat` — 启动器，用 `pythonw.exe` 运行（无控制台黑框）
+- `DESIGN.md` — 本设计文档
 - 开机自启：把指向该 `.bat` 的快捷方式放入用户启动文件夹 `shell:startup`
+- 远端仓库：`https://github.com/YueX1an/willcodexreset.git`
 
 解释器：`C:\Users\leozhang\anaconda3\envs\yt-dlp\pythonw.exe`（已装 tkinter）。
 
@@ -107,4 +109,4 @@
 
 ## 备注
 
-- 工作目录 `E:\temp` 不是 git 仓库，spec 无法 commit，仅落盘保存
+- 项目仓库：`https://github.com/YueX1an/willcodexreset.git`（本地克隆 `E:\OneDrive\应用\willcodexreset\`）
