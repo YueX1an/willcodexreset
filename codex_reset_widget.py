@@ -82,8 +82,20 @@ def _round_region(hwnd: int, w: int, h: int, r: int) -> None:
 def _hide_from_taskbar(hwnd: int) -> None:
     GWL_EXSTYLE = -20
     WS_EX_TOOLWINDOW = 0x00000080
-    ex = ctypes.windll.user32.GetWindowLongW(int(hwnd), GWL_EXSTYLE)
-    ctypes.windll.user32.SetWindowLongW(int(hwnd), GWL_EXSTYLE, ex | WS_EX_TOOLWINDOW)
+    WS_EX_APPWINDOW = 0x00040000
+    GA_ROOT = 2
+    SWP_FRAMECHANGED = 0x0020
+    SWP_NOACTIVATE = 0x0010
+    SWP_NOZORDER = 0x0004
+    SWP_NOMOVE = 0x0002
+    SWP_NOSIZE = 0x0001
+    user32 = ctypes.windll.user32
+    # Tk's winfo_id() is the child drawing window; Explorer sees its wrapper.
+    wrapper = user32.GetAncestor(int(hwnd), GA_ROOT) or int(hwnd)
+    ex = user32.GetWindowLongW(wrapper, GWL_EXSTYLE)
+    user32.SetWindowLongW(wrapper, GWL_EXSTYLE, (ex | WS_EX_TOOLWINDOW) & ~WS_EX_APPWINDOW)
+    user32.SetWindowPos(wrapper, 0, 0, 0, 0, 0,
+                        SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOMOVE | SWP_NOSIZE)
 
 
 def _tray_image() -> Image.Image:
