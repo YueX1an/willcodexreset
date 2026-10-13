@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .pytest_cache/
 *.log
+
+# 本地设计/计划文档，不上传
+DESIGN.md
+PLAN.md
