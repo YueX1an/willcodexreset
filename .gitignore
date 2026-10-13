@@ -6,3 +6,7 @@ __pycache__/
 # 本地设计/计划文档，不上传
 DESIGN.md
 PLAN.md
+
+# macOS 本机构建产物
+macos/build/
+macos/widgetkit/build/
