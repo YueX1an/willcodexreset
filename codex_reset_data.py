@@ -6,9 +6,10 @@ import urllib.request
 
 API_URL = "https://willcodexreset.com/api/reset-radar"
 
-GREEN = "#34C759"
-ORANGE = "#FF9F0A"
-RED = "#FF453A"
+# iOS system colors, dark variants (readable on a light glass background)
+GREEN = "#248A3D"
+ORANGE = "#C77700"
+RED = "#D70015"
 GRAY = "#8E8E93"
 
 
